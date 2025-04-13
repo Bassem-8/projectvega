@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body p-5">
+                    <form action="/calculate" method="post">
+                        <div class="mb-4">
+                            <p>Please answer the following questions to estimate your Carbon Footprint:</p>
+                            <h3>1. Transportation</h3>
+                            <p>How do you primarily commute daily?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transport" id="walk" value="walk" required>
+                                <label class="form-check-label" for="walk">Walk or bicycle (0 kg CO₂)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transport" id="public" value="public">
+                                <label class="form-check-label" for="public">Public transportation (20 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transport" id="car_gas" value="car_gas">
+                                <label class="form-check-label" for="car_gas">Personal car (gasoline, 100 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transport" id="car_electric" value="car_electric">
+                                <label class="form-check-label" for="car_electric">Personal car (electric, 40 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transport" id="motorcycle" value="motorcycle">
+                                <label class="form-check-label" for="motorcycle">Motorcycle (60 kg CO₂/week)</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3>2. Diet</h3>
+                            <p>What best describes your diet?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="diet" id="vegan" value="vegan" required>
+                                <label class="form-check-label" for="vegan">Vegan (4 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="diet" id="vegetarian" value="vegetarian">
+                                <label class="form-check-label" for="vegetarian">Vegetarian (6 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="diet" id="occasional_meat" value="occasional_meat">
+                                <label class="form-check-label" for="occasional_meat">Occasional meat eater (20 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="diet" id="frequent_meat" value="frequent_meat">
+                                <label class="form-check-label" for="frequent_meat">Frequent meat eater (40 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="diet" id="heavy_meat" value="heavy_meat">
+                                <label class="form-check-label" for="heavy_meat">Heavy meat eater (60 kg CO₂/week)</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3>3. Energy Usage</h3>
+                            <p>What's your household energy situation?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="energy" id="renewable" value="renewable" required>
+                                <label class="form-check-label" for="renewable">Renewable energy only (50 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="energy" id="efficient" value="efficient">
+                                <label class="form-check-label" for="efficient">Energy efficient with some renewables (100 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="energy" id="average" value="average">
+                                <label class="form-check-label" for="average">Average energy usage (200 kg CO₂/week)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="energy" id="high" value="high">
+                                <label class="form-check-label" for="high">High energy usage (400 kg CO₂/week)</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Calculate My Footprint</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

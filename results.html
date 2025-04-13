@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Your Carbon Footprint Results</h2>
+
+                    <div class="alert alert-primary">
+                        <h4 class="alert-heading">🌍 Your Impact</h4>
+                        <p><strong>Weekly carbon footprint:</strong> {{ weekly }} kg CO₂</p>
+                        <p><strong>Yearly carbon footprint:</strong> {{ yearly }} kg CO₂</p>
+                        <hr>
+                        <p class="mb-0">To offset your carbon footprint, you would need to plant about <strong>{{ trees }} trees</strong>.</p>
+                        <small>(Each tree absorbs approximately 21 kg of CO₂ per year)</small>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4>📌 Suggestions to Reduce Your Footprint</h4>
+                        <p>Your <strong>{{ biggest }}</strong> has the biggest impact. Consider:</p>
+                        <ul>
+                            {% for suggestion in suggestions %}
+                                <li>{{ suggestion }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 alert alert-success">
+                        <h4>💡 Eco Tip</h4>
+                        <p class="mb-0">{{ tip }}</p>
+                    </div>
+
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-primary mt-3">Calculate Again</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
